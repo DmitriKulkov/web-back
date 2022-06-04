@@ -8,7 +8,7 @@ import { ConfigModule } from '@nestjs/config';
 import * as PostgresConnectionStringParser from 'pg-connection-string';
 
 const getDBVars = () => {
-  const isProd = process.env.PGSSLMODE === 'production';
+  const isProd = process.env.NODE_ENV === 'production';
   const connectionOptions = isProd
     ? PostgresConnectionStringParser.parse(process.env.DATABASE_URL)
     : null;
